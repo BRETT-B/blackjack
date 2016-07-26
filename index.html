@@ -1,0 +1,87 @@
+
+<html>
+<head>
+	<title>Blackjack</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	
+</head>
+<body>
+	<!-- 1.Create an element for our table. Turn it green, and give it a white border.
+	2.Create an element for the dealer's hand and for the player's hand.
+	3.Create an element for the dealers's total and the player's total.
+	4.Create an element for each card in each hand, a max of 6 cards.
+	5.Assign a generic class to each card and a unique class to each card, so we can target
+	6.Make a DEAL, HIT, and STAND button.
+	7.Write some JS -->
+	<div class="container">
+		<div class="row">
+			<div class="the-table col-sm-8 col-sm-offset-2">
+				<!-- Dealer Row -->
+				<div class="row">
+					<div class="col-sm-12 dealer-hand-wrapper">
+						<!-- Dealer total on the top -->
+						<div class="col-sm-3 dealer-total">
+							Dealer Total<span class="dealer-total-number">0</span>
+						</div>
+						<!-- Dealer cards on the top, 9 col (2each) -->
+						<div class="col-sm-9 dealer-cards">
+							<div class="col-sm-2 card card-one">
+							</div>
+							<div class="col-sm-2 card card-two">
+							</div>
+							<div class="col-sm-2 card card-three">
+							</div>
+							<div class="col-sm-2 card card-four">
+							</div>
+							<div class="col-sm-2 card card-five">
+							</div>
+							<div class="col-sm-2 card card-six">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Player Row -->
+				<div class="row">
+					<div class="col-sm-12 player-hand-wrapper">
+						<!-- Player total on bottom -->
+						<div class="col-sm-3 player-total">
+						Player Total<span class="player-total-number">0</span>	
+						</div>
+						<!-- PLayer cards on the bottom, 9 col (2each) -->
+						<div class="col-sm-9 player-cards">
+							<div class="col-sm-2 card card-one">
+							</div>
+							<div class="col-sm-2 card card-two">
+							</div>
+							<div class="col-sm-2 card card-three">
+							</div>
+							<div class="col-sm-2 card card-four">
+							</div>
+							<div class="col-sm-2 card card-five">
+							</div>
+							<div class="col-sm-2 card card-six">
+							</div>
+						</div><!-- End Player Cards -->
+					</div><!-- End Player Wrapper -->
+				</div><!-- End Player Row -->
+
+				<div class="row player-actions">
+					<div class="col-sm-2 col-sm-offset-2">
+						<button class="deal-button">DEAL</button>
+					</div>
+					<div class="col-sm-2 col-sm-offset-1">
+						<button class="hit-button">HIT</button>
+					</div>
+					<div class="col-sm-2 col-sm-offset-1">
+						<button class="stand-button">STAND</button>
+					</div>
+				</div><!-- End Player Actions -->
+			</div><!-- End The Table -->
+		</div><!-- End Over-all Row -->
+	</div><!-- End Container -->
+</body>
+</html>
