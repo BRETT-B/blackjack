@@ -1,3 +1,7 @@
+img{
+	max-width: 120%;
+	display: inline-block;
+}
 .the-table{
 	background-color: green;
 	border: 5px solid red;
@@ -6,26 +10,42 @@
 	padding: 30px 0px;
 }
 .card{
-	height: 120px;
-	background-color: white;
-	margin: 5px;
+	height: 124px;
+	margin: 10px;
 	width: 13%;
-	border-radius: 7px;
 	color: black;
+	padding: 0;
+	vertical-align: middle;
 }
 .dealer-hand-wrapper, .player-hand-wrapper{
 	color: white;
 	font-size: 18px;
 	text-align: center;
+	padding: 5px;
 }
 .dealer-total-number, .player-total-number{
 	display: block;
 	text-align: center;
 }
-.player-actions button{
+.player-actions .deal-button{
 	width: 100%;
 	background: black;
 	color: white;
+	border-radius: 6px;	
+}
+.player-actions .hit-button{
+	width: 100%;
+	background-color: lightgreen;
+	border-radius: 50%;
+}
+.player-actions .stand-button{
+	width: 100%;
+	background-color: yellow;
+	border-radius: 50%;
+}
+.player-actions .reset-button{
+	width: 100%;
+	background-color: red;
 	border-radius: 6px;
-	
+	color: white;
 }
