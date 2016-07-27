@@ -5,8 +5,11 @@ var dealersHand = [];
 var topOfTheDeck = 4;
 var playerBank = 10;
 var betAmount = 0;
+var cardsDealt = false;
 $(document).ready(function(){
-
+	$('.chips').click(function(){
+		placeBet();
+	});
 	$('.deal-button').click(function(){
 		createDeck();	//Run a function that creates an array of 1H-13C
 		shuffleDeck();	//Run a function to shuffle the deck
@@ -19,12 +22,11 @@ $(document).ready(function(){
 		placeCard('player', 'two', theDeck[2]);
 		dealersHand.push(theDeck[3]);
 		placeCard('dealer', 'two', theDeck[3]);
-
+		cardsDealt = true;
 		calculateTotal(playersHand, 'player');
 		calculateTotal(dealersHand, 'dealer');
-		$('.chips').prop('disabled', true);
+		console.log(cardsDealt);
 	});
-
 	$('.hit-button').click(function(){
 		var playerTotal = calculateTotal(playersHand, 'player');
 		if(playerTotal <= 21){
@@ -47,7 +49,6 @@ $(document).ready(function(){
 			topOfTheDeck++;
 		}
 	});
-
 	$('.stand-button').click(function(){
 		// Player clicked on stand, wait for dealer to finish their whosTurn
 		var dealerTotal = calculateTotal(dealersHand, 'dealer');
@@ -81,38 +82,35 @@ $(document).ready(function(){
 		dealersHand = [];
 		calculateTotal(playersHand,'player');
 		calculateTotal(dealersHand,'dealer');
-		$('.chips').prop('disabled', false);
-		
 	});
-
-
-$('.chips').click(function(){
-	betAmount += 1;
-	playerBank -= 1;
-	$('.bank-display').html('Bank: ' +playerBank + '<br>Bet: '+ betAmount);
-
 });
-
-
-
-
-});
+function placeBet(){
+	if((cardsDealt == false) && (playerBank > 0)){
+			betAmount += 1;
+			playerBank -= 1;
+			$('.bank-display').html('Bank: ' +playerBank + '<br>Bet: '+ betAmount);
+	}
+}
 function checkWin(){
 	// Get player total
 	var playersTotal = calculateTotal(playersHand, 'player');
 	// Get dealer total
 	var dealersTotal = calculateTotal(dealersHand, 'dealer');
 	if(playersTotal > 21){
-
 		alert('You Bust!');
 		$('.bank-display').html('Bank: ' +playerBank + '<br>Bet: 0');
+	}
+	else if(playersTotal == 21){
+		alert('BLACKJACK!');
+		playerBank += (((betAmount * 2)*2)-betAmount);
+		$('.bank-display').html('Bank: ' +playerBank + '<br>Bet: 0');
+
 	}
 	else if(dealersTotal > 21){
 		alert('Dealer Bust! You WIN!');
 		playerBank += (betAmount * 2);
 		console.log(playerBank);
 		$('.bank-display').html('Bank: ' +playerBank + '<br>Bet: 0');
-
 	}
 	else{
 		if(playersTotal > dealersTotal){
@@ -126,11 +124,9 @@ function checkWin(){
 		}
 		else{
 			alert('Push');
-		
 			$('.bank-display').html('Bank: ' + (playerBank + betAmount) + '<br>Bet: 0');
 		}
 	}
-
 	betAmount = 0;
 }
 function placeCard(who, where, cardToPlace){
@@ -138,7 +134,6 @@ function placeCard(who, where, cardToPlace){
 	$(classSelector).html("<img src='images/"+cardToPlace+".png'>");
 	console.log(classSelector);
 	console.log(cardToPlace);
-
 	// Write logic to fix the 11, 12, 13 issue
 }
 function createDeck(){
@@ -185,4 +180,3 @@ function calculateTotal(hand, whosTurn){
 	console.log(total);
 	return total;
 }
-
