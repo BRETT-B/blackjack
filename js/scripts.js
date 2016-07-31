@@ -82,6 +82,7 @@ $(document).ready(function(){
 		dealersHand = [];
 		calculateTotal(playersHand,'player');
 		calculateTotal(dealersHand,'dealer');
+		cardsDealt = false;
 	});
 });
 function placeBet(){

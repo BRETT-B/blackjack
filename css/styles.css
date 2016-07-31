@@ -49,3 +49,12 @@ img{
 	border-radius: 6px;
 	color: white;
 }
+.bank-display{
+	display: block;
+	text-align: left;
+	color: white;
+	font-size: 18px;
+}
+.betting{
+	text-align: left;
+}
